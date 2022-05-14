@@ -1,0 +1,11 @@
+max_width = 80 
+indent_style = "Block"
+imports_granularity = "Crate"
+group_imports = "StdExternalCrate"
+spaces_around_ranges = true
+struct_field_align_threshold = 20
+reorder_imports = true
+binop_separator = "Back"
+wrap_comments = true
+comment_width = 60
+fn_single_line = true
