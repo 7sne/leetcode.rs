@@ -3,17 +3,26 @@ pub struct S001;
 impl S001 {
     #[allow(dead_code)]
     pub(crate) fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        use std::collections::HashMap;
-        let mut map: HashMap<i32, usize> = HashMap::new();
-        for (i, num) in nums.iter().enumerate() {
-            if let Some(&found) = map.get(&(target - num)) {
-                return vec![found as i32, i as i32];
+        let mut hm: std::collections::HashMap<i32, usize> = std::collections::HashMap::with_capacity(nums.len());
+        for (i, n) in nums.into_iter().enumerate() {
+            let maybe_match = hm.get(&(target - n));
+            if maybe_match.is_some() {
+                return vec![*maybe_match.unwrap() as i32, i as i32];
             }
-            map.insert(*num, i);
+            hm.insert(n, i);
         }
-        vec![]
+        panic!("Solution always exists");
     }
 }
+
+// 2
+// 7
+// 11
+// 15
+
+// 13
+
+// [2]
 
 #[cfg(test)]
 mod test {
